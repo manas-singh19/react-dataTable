@@ -38,6 +38,8 @@ class App extends React.Component {
     //initialize datatable
     $(document).ready(function () {
 
+      let data = {"data":[{"itemno":1,"name":"fsdfsdf","phone":"<a href=\"tel:343\" style=\"color:red;\">343</a>","email":"<p onclick=\"sendmail('865683','applynow')\">sdfsdf</p>","message":"<textarea class=\"textarea\" row=\"3\">fades df </textarea>","trucktype":"324","trailer":"a"},{"itemno":2,"name":"test","phone":"<a href=\"tel:786789\" style=\"color:red;\">786789</a>","email":"<p onclick=\"sendmail('361134','applynow')\">test@1.n</p>","message":"<textarea class=\"textarea\" row=\"3\"></textarea>","trucktype":"mn","trailer":"testt"}]};
+
         $("#example").dataTable().fnDestroy(); // first destroy the previous datatable
         $('#example').DataTable(
             {
@@ -45,15 +47,20 @@ class App extends React.Component {
                 // pageLength: 5,
                 // processing: true,
                  // serverSide: true,
-                 ajax: {
-                      url: 'https://jsonplaceholder.typicode.com/todos',
-                      type: 'get',
-                        dataSrc: 'responseData'
-                  },
+                 // ajax: {
+                 //      url: 'https://jsonplaceholder.typicode.com/todos',
+                 //      type: 'get',
+                 //        dataSrc: 'responseData'
+                 //  },
+                  ajax: "https://g4-trucking.com/applynowapi",
                   columns: [
-                      { data: 'userId' },
-                      { data: 'id' },
-                      { data: 'title' },
+                    {data:"itemno"},
+                    {data:"name"},
+                    {data:"phone"},
+                    {data:"email"},
+                    {data:"message"},
+                    {data:"trucktype"} ,
+                    {data:"trailer"}
                   ],
                   // dom: 'Bfrtip',
                   dom: 'lfBrtip',
@@ -76,21 +83,31 @@ class App extends React.Component {
           <table id="example" className="table table-hover table-bordered" style={{width:'100%'}}>
 
           <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Email</th>
+                                          <tr>
+                                              <th>S.no</th>
+                                              <th>Name</th>
 
-            </tr>
-          </thead>
+                                               <th>Phone</th>
+                                              <th>Email</th>
+
+                                              <th>Message</th>
+                                              <th>Trucktype</th>
+                                              <th>Trailer</th>
+                                          </tr>
+                                      </thead>
           <tfoot>
-            <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
+                                           <tr>
+                                              <th>S.no</th>
+                                              <th>Name</th>
 
-          </tr>
-        </tfoot>
+                                               <th>Phone</th>
+                                              <th>Email</th>
+
+                                              <th>Message</th>
+                                              <th>Trucktype</th>
+                                              <th>Trailer</th>
+                                          </tr>
+                                      </tfoot>
         </table>
 
         </div>
