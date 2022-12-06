@@ -1,8 +1,8 @@
 /*
-*         Class Component
+*         Function Component
 *
 */
-import React from 'react';
+import React,{useEffect} from 'react';
 //Bootstrap and jQuery libraries
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'jquery/dist/jquery.min.js';
@@ -21,18 +21,10 @@ import "datatables.net-dt/css/jquery.dataTables.min.css"
 //For API Requests
 import axios from 'axios';
 
-class App extends React.Component {
-
-  // State array variable to save and show data
-  constructor(props) {
-    super(props)
-      this.state = {
-        data: [],
-
-      }}
-  componentDidMount() {
+export default function App(){
 
 
+  useEffect(()=>{
     //initialize datatable -- start
     $(document).ready(function () {
 
@@ -66,9 +58,9 @@ class App extends React.Component {
 
     });
     // initialize datatable -- end
-    }
-  render(){
-    //Datatable HTML
+  });
+
+
   return (
     <div className="MainDiv">
 
@@ -111,5 +103,3 @@ class App extends React.Component {
       </div>
   );
 }
-}
-export default App;
